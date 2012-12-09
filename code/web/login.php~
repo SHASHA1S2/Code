@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Login to THEsite</title>
+</head>
+<body>
+<?php
+	#echo "Welcome";
+	#echo $_POST["login_name"];
+	#echo $_POST["login_pass"];
+	$con=mysql_connect("localhost","root","arbit123");
+	if(!con)
+		die(err);
+	if(!mysql_select_db("users",$con))
+		die(err);
+	$n=	"'".$_POST["login_name"]."'";
+	$p=	"'".$_POST["login_pass"]."'";
+	$q=	"Select * from account WHERE username=".$n."AND password=".$p;
+	$result=mysql_query($q,$con);
+	if(!$result)
+		die("username not found");
+	if (mysql_num_rows($result) == 0)
+		echo "usernotfound\n";
+	else
+		echo "Welcome".$_POST["login_name"];
+	mysql_close($con);
+
+?>
+</body>
+</html>

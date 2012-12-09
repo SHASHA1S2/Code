@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Login to THEsite</title>
+<LINK href="login.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id ="login">
+<div style="font-size:150%">
+Welcome to TheSite
+</div><br>
+<form action="login.php" method="post">
+<div style="font-size:75%;font-weight:bold">Username </div><br><input type="text" name="login_name" size=10><br>
+<div style="font-size:75%;font-weight:bold">Password </div><br><input type="text" name="login_pass" size=10><br>
+<input type="submit" value="login" name="login_submit"> 
+<a href="inp.htm">Register</a>
+</form>
+</div>
+</body>
+</html>

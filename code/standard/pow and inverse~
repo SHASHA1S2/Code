@@ -1,0 +1,64 @@
+typedef long long LL;
+LL mod=1000000007;
+
+long long  pow(long long  x,long long  n)
+{
+	long long  p=x;
+	long long  ans1=1;
+	while(n)
+	{
+		if(n%2==1)
+			ans1=(ans1*p)%mod;
+		p=(p*p)%mod;
+		n/=2;
+	}
+	return ans1;
+}
+
+LL inverse(LL n)
+{
+	LL a=mod,temp;
+	LL b=n,c00,d00,c11,d11,c01,q,d01,d10,c10;
+	c00=1;c01=0;c10=0;c11=1;
+	while(b!=0)	
+	{
+		q=a/b;
+		d00=c10;d01=c11;d10=c00-q*c10;d11=c01-q*c11;
+		c00=d00;c01=d01;c11=d11;c10=d10;
+		temp=b;
+		b=a%b;
+		a=temp;
+	}
+	while(c01<mod)
+		c01+=mod;
+	return c01%mod;
+}
+
+int main()
+{
+	long long T,N;
+	cin>>T;
+	long long ans;
+	while(T--)
+	{
+		scanf("%lld",&N);
+		if(N==1)
+			printf("4\n");
+		else
+		{
+			N--;
+			if(N%2==0){
+				ans=4*3*2*((pow(9,(N/2))-1)*inverse(8))%mod;
+				ans%=mod;	
+			}			
+			else{
+				ans=4*2*((pow(9,(N+1)/2)-1)*inverse(8))%mod;
+				ans=(ans+4)%mod;	
+			}
+			printf("%lld\n",ans);
+		}
+
+	}
+	return 0;
+}
+

@@ -1,0 +1,16 @@
+#login
+{
+	position:absolute;
+	left:70%;
+	width:25%;
+	height:35%;
+	top:10%;
+	background:#BFBBBD;
+	padding:10px;
+}
+
+#right_align
+{
+	position:absolute;
+	right:0%;
+}
